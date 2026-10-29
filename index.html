@@ -2244,6 +2244,12 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
   .tl-logo{margin-top:0}
 }
 @media print{.logo-band,.tl-logo{display:none}}
+/* correctif mobile : chiffres des dossiers contenus dans leur carte */
+@media (max-width:880px){
+  #cas .case-res,#cas .stack-item:first-child .case-res{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;gap:18px;overflow:hidden}
+  #cas .case-res .stat,#cas .stack-item:first-child .case-res .stat{flex:none;width:100%;min-width:0;max-width:100%;margin:0;transform:none}
+  #cas .stat-num,#cas .stat-lab{max-width:100%;white-space:normal;overflow-wrap:anywhere;transform:none}
+}
 </style>
 </head>
 <body class="intro-on hdr-dark">
