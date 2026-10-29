@@ -2250,6 +2250,20 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
   #cas .case-res .stat,#cas .stack-item:first-child .case-res .stat{flex:none;width:100%;min-width:0;max-width:100%;margin:0;transform:none}
   #cas .stat-num,#cas .stat-lab{max-width:100%;white-space:normal;overflow-wrap:anywhere;transform:none}
 }
+
+/* ===== V36 — choix de la messagerie ===== */
+dialog.mail-pick{border:1px solid #D6CBB5;border-radius:2px;padding:34px 34px 26px;width:min(420px,calc(100vw - 32px));background:#F4EFE5;color:#1E1C19;box-shadow:0 24px 60px rgba(27,45,37,.28)}
+dialog.mail-pick::backdrop{background:rgba(27,45,37,.55);backdrop-filter:blur(2px)}
+.mail-pick .mp-close{position:absolute;top:10px;right:12px;background:none;border:0;font-size:26px;line-height:1;color:#7C7367;cursor:pointer;padding:6px}
+.mail-pick .mp-eyebrow{font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#86683A;margin:0 0 10px}
+.mail-pick h3{font-family:'Epilogue',sans-serif;font-weight:300;font-size:27px;letter-spacing:-.03em;line-height:1.15;margin:0 0 8px}
+.mail-pick .mp-lead{font-size:14.5px;line-height:1.5;color:#443F38;margin:0 0 20px}
+.mail-pick .mp-list{display:flex;flex-direction:column;border-top:1px solid #1E1C19}
+.mail-pick .mp-list a,.mail-pick .mp-list button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;padding:15px 2px;border:0;border-bottom:1px solid #D6CBB5;background:none;font-family:'Inter',sans-serif;font-size:15.5px;color:#1E1C19;text-decoration:none;cursor:pointer;transition:color .3s,padding .3s}
+.mail-pick .mp-list a::after{content:'→';color:#B9976A}
+.mail-pick .mp-list a:hover,.mail-pick .mp-list button:hover{color:#2E4A3D;padding-left:8px}
+.mail-pick .mp-addr{margin:16px 0 0;font-size:13px;color:#7C7367;text-align:center}
+@media print{dialog.mail-pick{display:none}}
 </style>
 <script data-goatcounter="https://rob-lap.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -2299,7 +2313,7 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
         <button id="btn-fr" class="on" onclick="setLang('fr')">FR</button>
         <button id="btn-en" onclick="setLang('en')">EN</button>
       </div>
-      <a href="#contact" class="btn btn-primary btn-sm" data-fr="Contact" data-en="Contact">Contact</a>
+      <a href="#contact" data-mail-pick class="btn btn-primary btn-sm" data-fr="Contact" data-en="Contact">Contact</a>
       <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
     </div>
   </nav>
@@ -2319,7 +2333,7 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
     <div class="hero-foot reveal" style="--d:.3s">
       <p class="lead" data-fr="Je commence par l'humain, c'est-à-dire les savoir-faire et la façon dont les équipes résolvent leurs problèmes. Les délais et la qualité suivent, et ils restent." data-en="I start with people, meaning know-how and the way teams solve their problems. Lead times and quality follow, and they stay.">Je commence par l'humain, c'est-à-dire les savoir-faire et la façon dont les équipes résolvent leurs problèmes. Les délais et la qualité suivent, et ils restent.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#contact" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
+        <a class="btn btn-primary" href="#contact" data-mail-pick data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
         <a class="link-fil" href="#cas" data-fr="Voir mes réalisations" data-en="See my achievements">Voir mes réalisations</a>
         <button type="button" class="link-fil btn-cv" onclick="window.print()" data-fr="Imprimer le CV" data-en="Print the CV">Imprimer le CV</button>
       </div>
@@ -2804,7 +2818,7 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
     </div>
 
     <div class="ct-simple reveal">
-      <a class="btn btn-primary" href="mailto:robin.laplaine@gmail.com?subject=Opportunit%C3%A9%20-%20Excellence%20op%C3%A9rationnelle" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
+      <a class="btn btn-primary" data-mail-pick href="mailto:robin.laplaine@gmail.com?subject=Opportunit%C3%A9%20-%20Excellence%20op%C3%A9rationnelle" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
       <button type="button" class="link-fil btn-cv" onclick="window.print()" data-fr="Imprimer le CV (PDF)" data-en="Print the CV (PDF)">Imprimer le CV (PDF)</button>
       <small data-fr="Je réponds sous deux jours ouvrés." data-en="I reply within two working days.">Je réponds sous deux jours ouvrés.</small>
       <p class="ct-note">
@@ -2862,7 +2876,7 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
   </div>
 </footer>
 
-<a class="cta-fixe" href="#contact" id="ctaFixe" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
+<a class="cta-fixe" href="#contact" id="ctaFixe" data-mail-pick data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
 
 <!-- ==================== CV IMPRIMABLE (visible à l'impression seulement) ==================== -->
 <div id="cvp" aria-hidden="true">
@@ -2892,6 +2906,21 @@ button.link-fil{background:none;border:0;border-bottom:1px solid var(--laiton);b
     </div>
   </div>
 </div>
+
+<dialog id="mailPick" class="mail-pick" aria-labelledby="mpTitle">
+  <button type="button" class="mp-close" aria-label="Fermer">×</button>
+  <p class="mp-eyebrow" data-fr="Me contacter" data-en="Get in touch">Me contacter</p>
+  <h3 id="mpTitle" data-fr="Avec quelle messagerie ?" data-en="Which email do you use?">Avec quelle messagerie ?</h3>
+  <p class="mp-lead" data-fr="Un nouveau message s'ouvre avec mon adresse et un objet déjà remplis." data-en="A new message opens with my address and a subject already filled in.">Un nouveau message s'ouvre avec mon adresse et un objet déjà remplis.</p>
+  <div class="mp-list">
+    <a data-k="outlook" target="_blank" rel="noopener" data-fr="Outlook (messagerie professionnelle)" data-en="Outlook (work account)">Outlook (messagerie professionnelle)</a>
+    <a data-k="gmail" target="_blank" rel="noopener" data-fr="Gmail" data-en="Gmail">Gmail</a>
+    <a data-k="outlookcom" target="_blank" rel="noopener" data-fr="Outlook.com / Hotmail" data-en="Outlook.com / Hotmail">Outlook.com / Hotmail</a>
+    <a data-k="app" data-fr="Application mail de l'appareil" data-en="This device's mail app">Application mail de l'appareil</a>
+    <button type="button" data-k="copy" data-fr="Copier l'adresse" data-en="Copy the address">Copier l'adresse</button>
+  </div>
+  <p class="mp-addr">robin.laplaine@gmail.com</p>
+</dialog>
 
 <script>
 /* ---------- écran d'intro + logo animé ---------- */
@@ -3438,6 +3467,33 @@ var EauForte = (function(){
   if(!('IntersectionObserver' in window)){ v.forEach(function(e){ e.classList.add('vue'); }); return; }
   var o = new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('vue', e.isIntersecting); }); }, {rootMargin:'40px'});
   v.forEach(function(e){ o.observe(e); });
+})();
+</script>
+
+<script>
+/* ---------- choix de la messagerie ---------- */
+(function(){
+  var MAIL='robin.laplaine@gmail.com', d=document.getElementById('mailPick');
+  if(!d || typeof d.showModal!=='function') return;
+  function subj(){ return document.documentElement.lang==='en' ? 'Opportunity - Operational excellence' : 'Opportunité - Excellence opérationnelle'; }
+  function fill(){
+    var t=encodeURIComponent(MAIL), s=encodeURIComponent(subj());
+    d.querySelector('[data-k=outlook]').href='https://outlook.office.com/mail/deeplink/compose?to='+t+'&subject='+s;
+    d.querySelector('[data-k=gmail]').href='https://mail.google.com/mail/?view=cm&fs=1&to='+t+'&su='+s;
+    d.querySelector('[data-k=outlookcom]').href='https://outlook.live.com/mail/0/deeplink/compose?to='+t+'&subject='+s;
+    d.querySelector('[data-k=app]').href='mailto:'+MAIL+'?subject='+s;
+  }
+  document.querySelectorAll('[data-mail-pick]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); fill(); d.showModal(); });
+  });
+  d.addEventListener('click', function(e){ if(e.target===d) d.close(); });
+  d.querySelector('.mp-close').addEventListener('click', function(){ d.close(); });
+  d.querySelectorAll('.mp-list a').forEach(function(a){ a.addEventListener('click', function(){ setTimeout(function(){ d.close(); }, 250); }); });
+  var cp=d.querySelector('[data-k=copy]');
+  cp.addEventListener('click', function(){
+    var done=function(){ var en=document.documentElement.lang==='en'; cp.textContent = en ? 'Address copied' : 'Adresse copiée'; setTimeout(function(){ cp.innerHTML = cp.getAttribute('data-'+(en?'en':'fr')); }, 1800); };
+    try{ navigator.clipboard.writeText(MAIL).then(done, done); }catch(e){ done(); }
+  });
 })();
 </script>
 </body>
